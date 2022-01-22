@@ -1,0 +1,50 @@
+.navbar{
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    font-family: 'Nunito', sans-serif;
+}
+.top_left,.top_right{
+    flex: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.top_center{
+    flex: 6;
+}
+.top_left_icon{
+    font-size: 30px;
+    margin-right: 10px;
+    color: #444;
+    cursor: pointer;
+}
+.top_center_list{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.top_center_list_item{
+    margin-right: 20px;
+    font-size: 18px;
+    font-weight: 300;
+    cursor: pointer;
+}
+.top_right_image{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.top_right_search_icon{
+    font-size: 18px;
+    color: #666;
+    cursor: pointer;
+    margin-left: 15px;
+}
