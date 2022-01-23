@@ -1,0 +1,54 @@
+import React from "react";
+import './navbar.css'
+import { Link } from 'react-router-dom'
+
+export default function NavBar() {
+    const user = false;
+    return (
+        <div className="navbar">
+            <div className="top_left">
+            <i className="top_left_icon fab fa-facebook-square"></i>
+            <i className="top_left_icon fab fa-twitter-square"></i>
+            <i className="top_left_icon fab fa-pinterest-square"></i>
+            <i className="top_left_icon fab fa-instagram-square"></i>
+            </div>
+            <div className="top_center">
+                <ul className="top_center_list">
+                    <li className="top_center_list_item">
+                        <Link className='link' to='/'>HOME</Link>
+                    </li>
+                    <li className="top_center_list_item">
+                        <Link className='link' to='/'>ABOUT</Link>
+                    </li>
+                    <li className="top_center_list_item">
+                        <Link className='link' to='/'>CONTACT</Link>
+                    </li>
+                    <li className="top_center_list_item">
+                        <Link className='link' to='/write'>WRITE</Link>
+                    </li>
+                    <li className="top_center_list_item">
+                        {user && 'LOGOUT'}
+                    </li>
+                </ul>
+            </div>
+            <div className="top_right">
+                {
+                    user ? (
+                        <img className="top_right_image" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp7775832.jpg&f=1&nofb=1" alt="" />
+                    ) : (
+                        <ul className="top_center_list">
+                            <li className="top_center_list_item">
+                                <Link className='link' to='/login'>LOGIN</Link>
+                            </li>
+                            <li className="top_center_list_item">
+                                <Link className='link' to='/register'>REGISTER</Link>
+                            </li>
+                        </ul>
+                    )
+                }
+
+                <i className="top_right_search_icon fas fa-search"></i>
+            </div>
+        </div>
+    )
+}
