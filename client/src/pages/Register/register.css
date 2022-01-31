@@ -58,7 +58,14 @@
     line-height: 42px;
     text-align: center;
 }
-
+.error_text{
+    margin-top: 25px;
+    text-align: center;
+    color: red;
+}
+.label_title{
+    margin-top: 10px;
+}
 .register_input{
     display: block;
     margin-top: 30px;

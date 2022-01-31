@@ -1,7 +1,5 @@
 const router = require('express').Router()
-const User = require('../models/User')
 const Post = require('../models/Post')
-const bcrypt = require('bcrypt')
 
 //CREATE NEW POST
 router.post('/', async (req, res) => {
@@ -69,20 +67,25 @@ router.get('/:id', async (req, res) => {
 
 //GET ALL POSTS
 router.get('/', async (req, res) => {
-    const username = req.query.username
-    const category = req.query.category
+    const username = req.query.user
+    const category = req.query.categories
     try {
         let posts
         if(username){
-            posts = await Post.find({username: username})
+           let posts = await Post.find({username: username})
+           res.status(200).json(posts)
+           return
         } else if(category){
-            posts = await Post.find({categories: {
+            let posts = await Post.find({categories: {
                 $in:[category]
             }})
+            res.status(200).json(posts)
+            return
         } else {
             posts = await Post.find()
         }
         res.status(200).json(posts)
+        return
     } catch (error) {
         res.status(500).json(error)
     }
