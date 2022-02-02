@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import './navbar.css'
 import { Link } from 'react-router-dom'
+import { Context } from "../../context/Context";
 
 export default function NavBar() {
-    const user = false;
+    const {user, dispatch} = useContext(Context);
+
+    const handleLogout = () => {
+        dispatch({type: 'LOGOUT'})
+    }
     return (
         <div className="navbar">
             <div className="top_left">
@@ -26,7 +31,7 @@ export default function NavBar() {
                     <li className="top_center_list_item">
                         <Link className='link' to='/write'>WRITE</Link>
                     </li>
-                    <li className="top_center_list_item">
+                    <li className="top_center_list_item" onClick={handleLogout}>
                         {user && 'LOGOUT'}
                     </li>
                 </ul>
@@ -34,7 +39,7 @@ export default function NavBar() {
             <div className="top_right">
                 {
                     user ? (
-                        <img className="top_right_image" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp7775832.jpg&f=1&nofb=1" alt="" />
+                        <img className="top_right_image" src={user.profilePicture} alt="" />
                     ) : (
                         <ul className="top_center_list">
                             <li className="top_center_list_item">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
@@ -7,9 +7,10 @@ import Settings from "./pages/Settings/Settings";
 import Single from "./pages/Single/single";
 import Write from "./pages/Write/Write";
 import { Routes, Route, Link } from "react-router-dom";
+import { Context } from "./context/Context";
 
 function App() {
-  const user = false;
+  const {user} = useContext(Context);
   return (
     <>
       <NavBar/>

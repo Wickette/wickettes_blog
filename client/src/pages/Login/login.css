@@ -90,6 +90,10 @@
     align-self: center;
     padding: 10px;
 }
+.login_button1:disabled{
+    cursor: not-allowed;
+    background-color: #666;
+}
 .register_button1{
     margin-top: 20px;
     cursor: pointer;

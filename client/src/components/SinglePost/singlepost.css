@@ -19,6 +19,18 @@
     font-family: 'ACME', serif;
     font-size: 30px;
 }
+.single_post_title_input{
+    text-align: center;
+    margin: 10px;
+    font-family: 'ACME', serif;
+    font-size: 30px;
+    border: none;
+    color: #666;
+    border-bottom: 1px solid #666;
+}
+.single_post_title_input:focus{
+    outline: none;
+}
 .single_post_edit{
     float: right;
     font-size: 20px;
@@ -46,9 +58,29 @@
     font-size: 18px;
     line-height: 25px;
 }
+.single_post_description_input{
+    color: #666;
+    font-size: 18px;
+    line-height: 25px;
+    border: none;
+}
+.single_post_description_input:focus{
+    outline: none;
+}
 .single_post_description::first-letter{
     font-family: 'ACME', sans-serif;
     margin-left: 20px;
     font-size: 30px;
     min-width: 600px;
+}
+.single_post_update_button{
+    border: none;
+    background-color: teal;
+    width: 100px;
+    padding: 5px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-end;
+    margin-top: 20px;
 }
