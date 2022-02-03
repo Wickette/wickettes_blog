@@ -9,11 +9,17 @@ const categoryRoute = require('./routes/categories')
 const multer = require('multer')
 const path = require("path");
 
+const PORT = process.env.PORT || 5000
+
 dotenv.config()
 app.use(express.json())
 app.use("/images", express.static(path.join(__dirname, "/images")));
 
-mongoose.connect(process.env.MONGO_URL, {}).then(console.log('connected to mongo')).catch((error) => console.log(error))
+mongoose.connect(process.env.MONGODB_URI || process.env.MONGO_URL, {})
+
+mongoose.connection.on('connected', () => {
+    console.log('Mongoose is connected')
+})
 
 const storage = multer.diskStorage({
     destination: (req, file, callback) => {
@@ -34,6 +40,10 @@ app.use('/api/users', userRoute)
 app.use('/api/posts', postRoute)
 app.use('/api/categories', categoryRoute)
 
-app.listen('5000', () => {
-    console.log('backend running.')
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static('client/build'))
+}
+
+app.listen(PORT, () => {
+    console.log(`Backend running at ${PORT}`)
 })
