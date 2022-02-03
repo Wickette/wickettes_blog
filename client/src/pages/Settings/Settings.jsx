@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import './settings.css'
-import SideBar from '../../components/SideBar/SideBar'
 import { Context } from '../../context/Context';
 import axios from 'axios';
 
@@ -74,7 +73,6 @@ console.log(PF + user.profilePicture)
                     {success && <span style={{ color: 'green', textAlign: 'center', margin: '25px'}}>Profile updated successfully!</span>}
                 </form>
             </div>
-            <SideBar/>
         </div>
     )
 }

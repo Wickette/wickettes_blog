@@ -6,7 +6,7 @@ import Register from "./pages/Register/Register";
 import Settings from "./pages/Settings/Settings";
 import Single from "./pages/Single/single";
 import Write from "./pages/Write/Write";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { Context } from "./context/Context";
 
 function App() {

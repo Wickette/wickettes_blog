@@ -18,10 +18,10 @@ export default function Login() {
                 password: passwordRef.current.value
             })
             dispatch({ type: 'LOGIN_SUCCESS', payload: response.data })
-            return
+            
         } catch (error) {
             dispatch({ type: 'LOGIN_FAILURE' })
-            return
+            
         }
     }
 
