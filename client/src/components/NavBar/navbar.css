@@ -42,6 +42,7 @@
     width: 40px;
     border-radius: 50%;
     object-fit: cover;
+    cursor: pointer;
 }
 .top_right_search_icon{
     font-size: 18px;

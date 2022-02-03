@@ -23,7 +23,6 @@ export default function Login() {
             dispatch({ type: 'LOGIN_FAILURE' })
             return
         }
-        return
     }
 
     return (
