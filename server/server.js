@@ -1,6 +1,4 @@
 const express = require('express')
-const app = express()
-const dotenv = require('dotenv')
 const authRoute = require('./routes/auth')
 const userRoute = require('./routes/users')
 const postRoute = require('./routes/posts')
@@ -10,12 +8,20 @@ const path = require("path");
 const db = require('./config/connection.js')
 
 const PORT = process.env.PORT || 5000
+const app = express()
 
-dotenv.config()
 app.use(express.urlencoded({ extended: false }));
-app.use(express.json())
+app.use(express.json());
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/build')));
+}
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
+
 app.use("/images", express.static(path.join(__dirname, "/images")));
-app.use(express.static(__dirname))
 
 
 const storage = multer.diskStorage({
@@ -37,16 +43,9 @@ app.use('/api/users', userRoute)
 app.use('/api/posts', postRoute)
 app.use('/api/categories', categoryRoute)
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, 'client','build')));
-  }
 
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+db.once('open', () => {
+  app.listen(PORT, () => {
+    console.log(`API server running on port ${PORT}!`);
   });
-
-  db.once('open', () => {
-    app.listen(PORT, () => {
-      console.log(`API server running on port ${PORT}!`);
-    });
-  });
+});
