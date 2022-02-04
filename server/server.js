@@ -37,9 +37,9 @@ app.use('/api/auth', authRoute)
 app.use('/api/users', userRoute)
 app.use('/api/posts', postRoute)
 
-app.use((req, res) => {
-    res.sendFile(path.join(__dirname, '../client/build/index.html'));
-});
+// app.use((req, res) => {
+//     res.sendFile(path.join(__dirname, '../client/build/index.html'));
+// });
 
 db.once('open', () => {
     app.listen(PORT, () => {
