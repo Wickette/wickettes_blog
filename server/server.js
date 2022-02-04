@@ -1,8 +1,11 @@
 const express = require('express')
 const path = require("path");
 const db = require('./config/connection');
-const routes = require('./routes');
 const multer = require('multer')
+
+const authRoute = require('./routes/api/auth')
+const userRoute = require('./routes/api/users')
+const postRoute = require('./routes/api/posts')
 
 const app = express()
 const PORT = process.env.PORT || 5000
@@ -31,7 +34,13 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../client/build')));
 }
 
-app.use(routes);
+app.use('/api/auth', authRoute)
+app.use('/api/users', userRoute)
+app.use('/api/posts', postRoute)
+
+app.use((req, res) => {
+    res.sendFile(path.join(__dirname, '../../client/build/index.html'));
+  });
 
 db.once('open', () => {
     app.listen(PORT, () => {
