@@ -29,7 +29,6 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
     res.status(200).json('File has been uploaded')
 })
 
-
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../client/build')));
 }
@@ -39,8 +38,8 @@ app.use('/api/users', userRoute)
 app.use('/api/posts', postRoute)
 
 app.use((req, res) => {
-    res.sendFile(path.join(__dirname, '../../client/build/index.html'));
-  });
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
 
 db.once('open', () => {
     app.listen(PORT, () => {
