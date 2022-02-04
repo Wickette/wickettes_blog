@@ -47,7 +47,6 @@ export default function Settings() {
         }
     }
 
-console.log(PF + user.profilePicture)
     return (
         <div className='settings'>
             <div className='settings_wrapper'>
