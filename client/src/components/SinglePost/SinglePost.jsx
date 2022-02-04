@@ -10,7 +10,8 @@ export default function SinglePost() {
     const location = useLocation()
     const path = location.pathname.split('/')[2]
     const [post, setPost] = useState([])
-    const PF = 'https://localhost:5000/images/'
+    const origin = window.location.origin
+    const PF = `${origin}/images/`
     const { user } = useContext(Context)
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')

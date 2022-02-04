@@ -5,7 +5,8 @@ import { Context } from "../../context/Context";
 
 export default function NavBar() {
     const {user, dispatch} = useContext(Context);
-    const PF = 'https://localhost:5000/images/'
+    const origin = window.location.origin
+    const PF = `${origin}/images/`
 
     const handleLogout = () => {
         dispatch({type: 'LOGOUT'})

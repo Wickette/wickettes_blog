@@ -1,9 +1,10 @@
 import React from "react";
-import {Link} from 'react-router-dom'
+import {Link, useLocation} from 'react-router-dom'
 import './post.css'
 
 export default function Post({post}) {
-    const PF = 'https://localhost:5000/images/'
+    const origin = window.location.origin
+    const PF = `${origin}/images/`
     return (
         <div className="post">
             {post.postPicture && (

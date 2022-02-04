@@ -11,7 +11,8 @@ export default function Settings() {
     const [password, setPassword] = useState('')
     const [success, setSuccess] = useState(false)
     const { user, dispatch } = useContext(Context)
-    const PF = 'https://localhost:5000/images/'
+    const origin = window.location.origin
+    const PF = `${origin}/images/`
 
     const handleUserUpdate = async (e) => {
         e.preventDefault()
