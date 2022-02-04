@@ -18,7 +18,7 @@ app.use("/images", express.static("./images"));
 
 const storage = multer.diskStorage({
     destination: (req, file, callback) => {
-        callback(null, './images')
+        callback(null, '/images')
     },
     filename: (req, file, callback) => {
         callback(null, req.body.name)
