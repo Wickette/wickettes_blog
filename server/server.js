@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const dotenv = require('dotenv')
+require('dotenv').config()
 const mongoose = require('mongoose')
 const authRoute = require('./routes/auth')
 const userRoute = require('./routes/users')
@@ -11,11 +11,10 @@ const path = require("path");
 
 const PORT = process.env.PORT || 5000
 
-dotenv.config()
 app.use(express.json())
 app.use("/images", express.static(path.join(__dirname, "/images")));
 
-mongoose.connect(process.env.MONGO_URL, {})
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/wickette-blog', {})
 
 mongoose.connection.on('connected', () => {
     console.log('Mongoose is connected')
@@ -41,7 +40,7 @@ app.use('/api/posts', postRoute)
 app.use('/api/categories', categoryRoute)
 
 if(process.env.NODE_ENV === 'production'){
-    app.use(express.static('client/build'))
+    app.use(express.static('../client/build'))
 }
 
 app.listen(PORT, () => {
