@@ -2,9 +2,11 @@ const express = require('express')
 const path = require("path");
 const db = require('./config/connection');
 const multer = require('multer')
-const authRoute = require('./routes/api/auth')
-const userRoute = require('./routes/api/users')
-const postRoute = require('./routes/api/posts')
+// const authRoute = require('./routes/api/auth')
+// const userRoute = require('./routes/api/users')
+// const postRoute = require('./routes/api/posts')
+
+const routes = require('./routes');
 
 const app = express()
 const PORT = process.env.PORT || 5000
@@ -32,13 +34,16 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static("client/build"));
 }
 
-app.use('/api/auth', authRoute)
-app.use('/api/users', userRoute)
-app.use('/api/posts', postRoute)
+// app.use('/api/auth', authRoute)
+// app.use('/api/users', userRoute)
+// app.use('/api/posts', postRoute)
 
-app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
+app.use(routes)
+
+// app.get("*", (req, res) => {
+//     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+// });
+
 db.once('open', () => {
     app.listen(PORT, () => {
         console.log(`API server running on port ${PORT}!`);
