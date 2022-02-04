@@ -30,7 +30,7 @@ export default function Settings() {
             data.append('file', file)
             updatedUser.profilePicture = filename
             try {
-               await  axios.post('/upload', data)
+               await axios.post('/upload', data)
             } catch (error) {
                 console.log(error)
             }
