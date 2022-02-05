@@ -6,7 +6,7 @@ import { Context } from "../../context/Context";
 export default function NavBar() {
     const {user, dispatch} = useContext(Context);
     const origin = window.location.origin
-    const PF = `${origin}/images/`
+    const PF = `https://wicketteblog-bucket.s3.ca-central-1.amazonaws.com/`
 
     const handleLogout = () => {
         dispatch({type: 'LOGOUT'})

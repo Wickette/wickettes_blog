@@ -4,7 +4,7 @@ import './post.css'
 
 export default function Post({post}) {
     const origin = window.location.origin
-    const PF = `${origin}/images/`
+    const PF = `https://wicketteblog-bucket.s3.ca-central-1.amazonaws.com/`
     return (
         <div className="post">
             {post.postPicture && (

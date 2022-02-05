@@ -31,7 +31,6 @@ export default function Write() {
         try {
             const response = await axios.post('/posts', newPost)
             window.location.replace('/post/'+response.data._id)
-            console.log(response)
         } catch (error) {
             console.log(error)
         }
