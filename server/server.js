@@ -4,11 +4,13 @@ const db = require('./config/connection');
 const aws = require('aws-sdk')
 const multer = require('multer')
 const multerS3 = require('multer-s3')
+const dotenv = require('dotenv')
+dotenv.config()
 
 const routes = require('./routes');
 
 const app = express()
-const s3 = new aws.S3({accessKeyId: 'AKIAQLMQFUON5PZ6FKUO', secretAccessKey: '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'})
+const s3 = new aws.S3({accessKeyId: process.env.AWS_ACCESS_KEY_ID, secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY})
 const PORT = process.env.PORT || 5000
 
 app.use(express.urlencoded({ extended: true }));
