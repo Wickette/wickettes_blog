@@ -10,7 +10,6 @@ export default function SinglePost() {
     const location = useLocation()
     const path = location.pathname.split('/')[2]
     const [post, setPost] = useState([])
-    const origin = window.location.origin
     const PF = `https://wicketteblog-bucket.s3.ca-central-1.amazonaws.com/`
     const { user } = useContext(Context)
     const [title, setTitle] = useState('')

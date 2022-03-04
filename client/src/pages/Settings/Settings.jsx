@@ -11,8 +11,7 @@ export default function Settings() {
     const [password, setPassword] = useState('')
     const [success, setSuccess] = useState(false)
     const { user, dispatch } = useContext(Context)
-    const origin = window.location.origin
-    const PF = `${origin}/images/`
+    const PF = `https://wicketteblog-bucket.s3.ca-central-1.amazonaws.com/`
 
     const handleUserUpdate = async (e) => {
         e.preventDefault()
@@ -54,17 +53,18 @@ export default function Settings() {
                     <span className='settings_update_title'>Update Your Account Info</span>
                     <span className='settings_delete_title'>Delete Your Account </span>
                 </div>
-                <form action='' className='settings_form' onSubmit={handleUserUpdate}>
+                <span style={{color: "red"}}><em>Please note: Fill out all fields when updating your account, even if nothing has changed</em></span>
+                <form className='settings_form' onSubmit={handleUserUpdate}>
                     <label>Profile Picture</label>
                     <div className='settings_profile_picture'>
-                        <img src={file ? URL.createObjectURL(file) : PF + user.profilePicture} alt='' />
+                        <img src={file ? URL.createObjectURL(file) : PF + user.profilePicture} alt='profile' />
                         <label htmlFor='file_input'>
                             <i className='settings_icon fas fa-user'></i>
                         </label>
                         <input type='file' id='file_input' style={{display: 'none'}} onChange={e=>setFile(e.target.files[0])}/>
                     </div>
-                    <label>Username</label>
-                    <input type="text" placeholder={user.username} onChange={e=>setUsername(e.target.value)}/>
+                    <label htmlFor='username'>Username</label>
+                    <input type="text" id='username' name='username' placeholder={user.username} onChange={e=>setUsername(e.target.value)} />
                     <label>Email</label>
                     <input type="email" placeholder={user.email} onChange={e=>setEmail(e.target.value)}/>
                     <label>Password</label>

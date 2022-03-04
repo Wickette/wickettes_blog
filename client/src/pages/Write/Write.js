@@ -45,7 +45,7 @@ export default function Write() {
                 />
             }
             <form className='write_form' onSubmit={handleSubmit}>
-                <div className='write_form_group'>
+                  <div className='write_form_group'>
                     <label htmlFor='file_input'>
                         <i className='write_icon far fa-plus-square'></i>
                     </label>
