@@ -4,10 +4,10 @@
   ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
   https://opensource.org/licenses/MIT
 
-  #Wickettes Blog
   
   ## Description
-  Blog style website created using MERN stack. User is able to login using context API, create/edit/delete/update blog posts. See blog posts from other users without the ability to update/delete. 
+  Blog style website created using MERN stack. User is able to login using context API, create/edit/delete/update blog posts. See blog posts from other users   without the ability to update/delete. 
+  ** Currently a WIP see [Ice-Box](#ice-box) and project kanban board for more information
 
   * [Installation](#installation)
   * [Ice-Box](#ice-box)
@@ -20,16 +20,16 @@
   * [Links and Images](#links)
   
   ## Ice-Box
-  - removing sidebar and categories
+  - Add side bar, and API for quote of the day
   - adding commenting functionality
   - updating UI/UX
-  - converting to JWT
+  - converting to JWT Authorization
 
   ## Installation
-  
+  Navigate to https://wickettesblog.herokuapp.com/ to view the website
 
   ## Usage
-  
+  Create an account and login to create blog posts, and view posts from other users.
 
   ## Contributions
   
@@ -46,3 +46,4 @@
   https://github.com/Wickette
 
   ## Links
+  https://wickettesblog.herokuapp.com/
