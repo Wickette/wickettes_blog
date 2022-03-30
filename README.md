@@ -1,4 +1,4 @@
-# Wickettes Blog
+# Wickettes Blog ~W.I.P~
 
   ## License
   ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
