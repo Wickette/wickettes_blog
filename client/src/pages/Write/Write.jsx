@@ -54,7 +54,7 @@ export default function Write() {
                     <input type='text' value='Title' className='write_input' onChange={e=>setTitle(e.target.value)}/>
                 </div>
                 <div className="write_form_group">
-                    <textarea type='text' value='Tell your story...' className='write_input write_text' onChange={e=>setDescription(e.target.value)}></textarea>
+                    <textarea type='text' value={description} className='write_input write_text' onChange={e=>setDescription(e.target.value)}></textarea>
                 </div>
                 <button className='write_submit' type='submit'>Publish</button>
             </form>
