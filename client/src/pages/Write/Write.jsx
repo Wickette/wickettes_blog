@@ -51,10 +51,10 @@ export default function Write() {
                         <i className='write_icon far fa-plus-square'></i>
                     </label>
                     <input type='file' id='file_input' style={{display: 'none'}} onChange={e=>setFile(e.target.files[0])} />
-                    <input type='text' value='Title' className='write_input' onChange={e=>setTitle(e.target.value)}/>
+                    <input type='text' className='write_input' onChange={e=>setTitle(e.target.value)}/>
                 </div>
                 <div className="write_form_group">
-                    <textarea type='text' value={description} className='write_input write_text' onChange={e=>setDescription(e.target.value)}></textarea>
+                    <textarea type='text' className='write_input write_text' onChange={e=>setDescription(e.target.value)}></textarea>
                 </div>
                 <button className='write_submit' type='submit'>Publish</button>
             </form>
